@@ -1,0 +1,37 @@
+coiffe piou rouge;15;0;0;0;1;0;
+cape piou rouge;0;0;0;0;1;20;
+ceinture piou rouge;10;0;0;0;0;10;
+bottes piou rouge;5;0;0;0;0;15;
+amulette piou rouge;20;0;0;0;0;0;
+anneaux piou rouge;8;0;0;0;1;8
+coiffe piou vert;0;0;0;15;1;0
+cape piou vert;0;0;0;0;1;20
+ceinture piou vert;0;0;0;10;0;10
+bottes piou vert;0;0;0;5;0;15
+amulette piou vert;0;0;0;20;0;0
+anneaux piou vert;8;0;0;0;1;8
+coiffe piou jaune;0;15;0;0;1;0
+cape piou jaune;0;0;0;0;1;20
+ceinture piou jaune;0;10;0;0;0;10
+bottes piou jaune;0;5;0;0;0;15
+amulette piou jaune;0;0;0;20;0;0
+anneaux piou jaune;0;0;0;8;1;8
+coiffe piou vert;0;0;15;0;1;0
+cape piou vert;0;0;0;0;1;20
+ceinture piou vert;0;0;10;0;0;10
+bottes piou vert;0;0;5;0;0;15
+amulette piou vert;0;0;20;0;0;0
+anneaux piou vert;0;0;8;0;1;8
+coiffe aventurier;3;3;3;0;0;0
+cape aventurier;0;3;3;3;0;0
+ceinture aventurier;3;0;3;3;0;0
+bottes aventurier;3;3;0;3;0;0
+amulette aventurier;0;0;0;0;0;8
+anneaux aventurier;2;2;2;2;0;0
+coiffe bouftou;10;10;0;0;0;5
+cape bouftou;5;5;0;0;0;20
+ceinture bouftou;4;4;0;0;2;10
+bottes bouftou;6;6;0;0;1;8
+amulette bouftou;12;12;0;0;1;0
+anneaux bouftou;5;5;0;0;2;5
+arme bouftou;10;10;0;0;3;10
