@@ -123,7 +123,7 @@ void download_file(sfFtp *ftp, general_t *g)
 
         FILE *check;
         sfFtpResponse *reponse = sfFtp_sendCommand(ftp, "size", asset);
-        char *rep = sfFtpResponse_getMessage(reponse);
+        char const *rep = sfFtpResponse_getMessage(reponse);
         stat(check_file, &file_size);
         if ((check = fopen(check_file, "r")) == NULL) {
             sfFtp_download(ftp, asset, "./asset/", sfFtpAscii);
