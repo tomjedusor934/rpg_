@@ -10,5 +10,5 @@
 void player_turn(general_t *g)
 {
     player_move(get_player_pos(g), g, g->player->stat_player->info->pm);
-    
+    is_dead(g);
 }
