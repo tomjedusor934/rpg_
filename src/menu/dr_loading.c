@@ -7,12 +7,42 @@
 
 #include "../../include/my_rpg.h"
 
+void fix_mm(general_t *g)
+{
+    g->menu->main_menu->pos.x = g->player->cam_posx + 565;
+    g->menu->main_menu->pos.y = g->player->cam_posy + 250;
+    sfSprite_setPosition(g->menu->main_menu->sprite,
+    g->menu->main_menu->pos);
+
+    g->menu->mm_option->pos.x = g->menu->main_menu->pos.x + 50 * 2;
+    g->menu->mm_option->pos.y = g->menu->main_menu->pos.y + 52 * 2;
+    sfSprite_setPosition(g->menu->mm_option->sprite,
+    g->menu->mm_option->pos);
+
+    g->menu->mm_resume->pos.x = g->menu->main_menu->pos.x + 50 * 2;
+    g->menu->mm_resume->pos.y = g->menu->main_menu->pos.y + 114 * 2;
+    sfSprite_setPosition(g->menu->mm_resume->sprite,
+    g->menu->mm_resume->pos);
+
+    g->menu->mm_exit->pos.x = g->menu->main_menu->pos.x + 50 * 2;
+    g->menu->mm_exit->pos.y = g->menu->main_menu->pos.y + 177 * 2;
+    sfSprite_setPosition(g->menu->mm_exit->sprite,
+    g->menu->mm_exit->pos);
+
+    g->menu->mom_cross->pos.x = g->menu->main_menu->pos.x + 354 * 2;
+    g->menu->mom_cross->pos.y = g->menu->main_menu->pos.y + 8 * 2;
+    sfSprite_setPosition(g->menu->mom_cross->sprite,
+    g->menu->mom_cross->pos);
+}
+
 void main_menu(general_t *g)
 {
     g->menu->mom_cross->pos.x = g->menu->main_menu->pos.x + 354 * 2;
     g->menu->mom_cross->pos.y = g->menu->main_menu->pos.y + 8 * 2;
     sfSprite_setPosition(g->menu->mom_cross->sprite,
     g->menu->mom_cross->pos);
+    if (g->plan == GAME || g->plan == FIGHT)
+        fix_mm(g);
     sfRenderWindow_drawSprite(g->game->window,
     g->menu->main_menu->sprite, NULL);
     sfRenderWindow_drawSprite(g->game->window,
@@ -23,12 +53,42 @@ void main_menu(general_t *g)
     g->menu->mm_exit->sprite, NULL);
 }
 
+void fix_option(general_t *g)
+{
+    g->menu->option_menu->pos.x = g->player->cam_posx + 270;
+    g->menu->option_menu->pos.y = g->player->cam_posy + 150;
+    sfSprite_setPosition(g->menu->option_menu->sprite,
+    g->menu->option_menu->pos);
+
+    g->menu->om_fps->pos.x = g->menu->option_menu->pos.x + 385 * 1.5;
+    g->menu->om_fps->pos.y = g->menu->option_menu->pos.y + 345;
+    sfSprite_setPosition(g->menu->om_fps->sprite,
+    g->menu->om_fps->pos);
+
+    g->menu->om_musique->pos.x = g->menu->option_menu->pos.x + 385 * 1.5;
+    g->menu->om_musique->pos.y = g->menu->option_menu->pos.y + 475;
+    sfSprite_setPosition(g->menu->om_musique->sprite,
+    g->menu->om_musique->pos);
+
+    g->menu->om_fx->pos.x = g->menu->option_menu->pos.x + 385 * 1.5;
+    g->menu->om_fx->pos.y = g->menu->option_menu->pos.y + 610;
+    sfSprite_setPosition(g->menu->om_fx->sprite,
+    g->menu->om_fx->pos);
+
+    g->menu->mom_cross->pos.x = g->menu->option_menu->pos.x + 354 * 2;
+    g->menu->mom_cross->pos.y = g->menu->option_menu->pos.y + 8 * 2;
+    sfSprite_setPosition(g->menu->mom_cross->sprite,
+    g->menu->mom_cross->pos);
+}
+
 void option_menu(general_t *g)
 {
     g->menu->mom_cross->pos.x = g->menu->option_menu->pos.x + 868 * 1.5;
     g->menu->mom_cross->pos.y = g->menu->option_menu->pos.y + 23 * 1.5;
     sfSprite_setPosition(g->menu->mom_cross->sprite,
     g->menu->mom_cross->pos);
+    if (g->plan == GAME || g->plan == FIGHT)
+        fix_option(g);
     sfRenderWindow_drawSprite(g->game->window,
     g->menu->option_menu->sprite, NULL);
     sfRenderWindow_drawSprite(g->game->window,

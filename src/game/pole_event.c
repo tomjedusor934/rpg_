@@ -22,8 +22,10 @@ void envent_menu(general_t *g)
         if (g->game->event.type == sfEvtKeyPressed &&
         g->game->event.key.code == sfKeySpace)
             choose_file(g, g->game->event.key.code);
-        if (g->game->event.type == sfEvtKeyPressed &&
-        g->game->event.key.code == sfKeyReturn) {
+        if ((g->game->event.type == sfEvtKeyPressed &&
+        g->game->event.key.code == sfKeyReturn) ||
+        is_on_button(g->menu->connect_but, g) ||
+        is_on_button(g->menu->create_but, g)) {
             registration(g);
         }
     }
@@ -54,7 +56,7 @@ void event_game(general_t *g)
         op_carac(g);
         update_stat(g);
         manage_quest(g);
-        if (g->game->event.type == sfEvtMouseButtonReleased && g->inv->is_open == 0 && g->inv->caract_open == 0) {
+        if (g->game->event.type == sfEvtMouseButtonReleased && g->inv->is_open == 0 && g->inv->caract_open == 0 && g->surscene == NOTHING) {
             click_on_mob(g);
             g->player->dir_anim = 0;
             g->player->tmp_pos_x = g->pos_playe_x;
@@ -71,11 +73,20 @@ void event_game(general_t *g)
 void pole_event(general_t *g)
 {
     while (sfRenderWindow_pollEvent(g->game->window, &g->game->event)) {
-        if (g->game->event.type == sfEvtKeyPressed &&
-        g->game->event.key.code == sfKeyReturn)
-            g->surscene == MAIN_MENU;
-        envent_menu(g);
-        event_fight(g);
-        event_game(g);
+        key_open_mm(g);
+        (g->surscene == SETTINGS ? on_settings(g) :
+        g->surscene == MAIN_MENU ? on_main(g) : 0);
+        if (g->game->event.type == sfEvtMouseButtonReleased) {
+            (g->surscene == SETTINGS ? ch_settings(g) :
+            g->surscene == MAIN_MENU ? ch_main(g) : 0);
+        }
+        if (g->game->event.type == sfEvtKeyReleased &&
+        g->game->event.key.code == sfKeyEscape)
+            g->surscene = MAIN_MENU;
+        if (g->surscene == NOTHING) {
+            envent_menu(g);
+            event_fight(g);
+            event_game(g);
+        }
     }
 }

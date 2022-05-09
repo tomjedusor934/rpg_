@@ -15,15 +15,15 @@ void game_loop_fight(general_t *g)
             find_mob(g, g->f->str);
             g->f->is_fg = 1;
         }
-        if (g->f->selected != NULL)
-            spell_range(get_player_pos(g), g,
-            g->f->selected->max_range, g->f->selected->min_range);
         if (g->f->is_mturn == 0)
             player_turn(g);
         if (g->f->is_mturn == 1) {
             mobs_turn(g);
             g->f->is_mturn = 0;
         }
+        if (g->f->selected != NULL)
+            spell_range(get_player_pos(g), g,
+            g->f->selected->max_range, g->f->selected->min_range);
         reset_the_map(g);
         draw_map(g);
         reset_map(g);
