@@ -43,7 +43,7 @@ void mu_intro(general_t *g)
 
 void mu_clicked(general_t *g)
 {
-    g->menu->b_clicked = sfSoundBuffer_createFromFile("asset/click.ogg");
+    g->menu->b_clicked = sfSoundBuffer_createFromFile("asset/clicked.ogg");
     g->menu->s_clicked = sfSound_create();
     sfSound_setBuffer(g->menu->s_clicked, g->menu->b_clicked);
     sfSound_setVolume(g->menu->s_clicked, g->fx);

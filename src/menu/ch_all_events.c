@@ -26,6 +26,5 @@ void check_events(general_t *g)
         }
         (g->surscene == SETTINGS ? ch_settings(g) :
         g->surscene == MAIN_MENU ? ch_main(g) : 0);
-        sfSound_play(g->menu->s_released);
     }
 }
