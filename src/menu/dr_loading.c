@@ -61,17 +61,48 @@ void fix_option(general_t *g)
     g->menu->option_menu->pos);
 
     g->menu->om_fps->pos.x = g->menu->option_menu->pos.x + 385 * 1.5;
-    g->menu->om_fps->pos.y = g->menu->option_menu->pos.y + 345;
+    g->menu->om_fps->pos.y = g->player->cam_posy + 345;
     sfSprite_setPosition(g->menu->om_fps->sprite,
     g->menu->om_fps->pos);
 
     g->menu->om_musique->pos.x = g->menu->option_menu->pos.x + 385 * 1.5;
-    g->menu->om_musique->pos.y = g->menu->option_menu->pos.y + 475;
+    g->menu->om_musique->pos.y = g->player->cam_posy + 475;
     sfSprite_setPosition(g->menu->om_musique->sprite,
     g->menu->om_musique->pos);
 
     g->menu->om_fx->pos.x = g->menu->option_menu->pos.x + 385 * 1.5;
-    g->menu->om_fx->pos.y = g->menu->option_menu->pos.y + 610;
+    g->menu->om_fx->pos.y = g->player->cam_posy + 610;
+    sfSprite_setPosition(g->menu->om_fx->sprite,
+    g->menu->om_fx->pos);
+
+    g->menu->om_less1->pos.x = g->menu->om_fps->pos.x;
+    g->menu->om_less1->pos.y = g->menu->om_fps->pos.y;
+    sfSprite_setPosition(g->menu->om_less1->sprite,
+    g->menu->om_less1->pos);
+
+    g->menu->om_less2->pos.x = g->menu->om_musique->pos.x;
+    g->menu->om_less2->pos.y = g->menu->om_musique->pos.y;
+    sfSprite_setPosition(g->menu->om_less2->sprite,
+    g->menu->om_less2->pos);
+
+    g->menu->om_less3->pos.x = g->menu->om_fx->pos.x;
+    g->menu->om_less3->pos.y = g->menu->om_fx->pos.y;
+    sfSprite_setPosition(g->menu->om_fx->sprite,
+    g->menu->om_fx->pos);
+
+
+    g->menu->om_more1->pos.x = g->menu->om_fps->pos.x + 314 * 1.5;
+    g->menu->om_more1->pos.y = g->menu->om_fps->pos.y;
+    sfSprite_setPosition(g->menu->om_more1->sprite,
+    g->menu->om_more1->pos);
+
+    g->menu->om_more2->pos.x = g->menu->om_musique->pos.x + 314 * 1.5;
+    g->menu->om_more2->pos.y = g->menu->om_musique->pos.y;
+    sfSprite_setPosition(g->menu->om_more2->sprite,
+    g->menu->om_more2->pos);
+
+    g->menu->om_more3->pos.x = g->menu->om_fx->pos.x + 314 * 1.5;
+    g->menu->om_more3->pos.y = g->menu->om_fx->pos.y;
     sfSprite_setPosition(g->menu->om_fx->sprite,
     g->menu->om_fx->pos);
 
