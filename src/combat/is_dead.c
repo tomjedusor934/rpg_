@@ -51,10 +51,12 @@ void is_dead2(general_t *g, int is_one_alive, mobs_fight_t *backup)
 {
     if (g->player->stat_player->info->vie <= 0) {
         lose_fight(g);
+        load_m("asset/map_custom.txt", g);
         g->f->mobs_fight = NULL;
     }
     if (g->f->mobs_fight != NULL && is_one_alive == 0) {
         end_fight(g);
+        load_m("asset/map_custom.txt", g);
         g->f->mobs_fight = NULL;
     }
 }
