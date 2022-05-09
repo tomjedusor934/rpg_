@@ -112,8 +112,6 @@ void download_file(sfFtp *ftp, general_t *g)
 {
     int add = 1920 / 63;
     int defaut = 1920 % 63;
-    // char *asset = NULL;
-    // char *check_file
     struct stat file_size;
     g->menu->loading_bar->rect.width += defaut;
     for (int i = 0; i < 63; i++) {

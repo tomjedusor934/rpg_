@@ -47,6 +47,10 @@ void all_game_event1(general_t *g)
 void cheat_cmd(general_t *g)
 {
     if (g->game->event.type == sfEvtKeyPressed &&
+    g->game->event.key.code == sfKeySlash &&
+    g->player->stat_player->god_mod == 1 && g->game->god_mode->is_visible == 1)
+        write_cmd(g, g->game->event.key.code + 6, g->game->god_mode->cmd);
+    if (g->game->event.type == sfEvtKeyPressed &&
     g->game->event.key.code == sfKeyBack &&
     g->player->stat_player->god_mod == 1 && g->game->god_mode->is_visible == 1)
         write_cmd(g, g->game->event.key.code, g->game->god_mode->cmd);
@@ -58,7 +62,10 @@ void cheat_cmd(general_t *g)
     g->game->event.key.code == sfKeySpace &&
     g->player->stat_player->god_mod == 1 && g->game->god_mode->is_visible == 1)
         write_cmd(g, g->game->event.key.code, g->game->god_mode->cmd);
-
+    if (g->game->event.type == sfEvtKeyPressed &&
+    g->game->event.key.code == sfKeyEnter &&
+    g->player->stat_player->god_mod == 1 && g->game->god_mode->is_visible == 1)
+        check_cmd(g);
 }
 
 void op_inv(general_t *g)

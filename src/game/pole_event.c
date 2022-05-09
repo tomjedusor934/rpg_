@@ -51,17 +51,11 @@ void event_game(general_t *g)
 {
     if (g->plan == GAME) {
         all_game_event1(g);
-
         cheat_cmd(g);
-
         op_inv(g);
-
         op_carac(g);
-
         update_stat(g);
-
         manage_quest(g);
-
         if (g->game->event.type == sfEvtMouseButtonReleased && g->inv->is_open == 0 && g->inv->caract_open == 0 && g->surscene == NOTHING) {
             click_on_mob(g);
             g->player->dir_anim = 0;

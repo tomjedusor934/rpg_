@@ -1,11 +1,11 @@
 l
 class: iop
 skin: iop_stop
-level: 11
-xp: 1788
-equipement: amulette bouftou,coiffe bouftou,anneaux bouftou,cape bouftou,anneaux piou rouge,arme bouftou,
-inventaire: amulette bouftou,amulette bouftou,ceinture bouftou,amulette bouftou,
-position: 994,770
-stats: 6,3,1000,139,32,12,23,23,12,45,3,7,23,12,2,21
-kama: 1116
+level: 7
+xp: 450
+equipement: amulette aventurier,coiffe bouftou,anneaux bouftou,cape bouftou,anneaux piou rouge,ceinture aventurier,bottes piou rouge,arme bouftou,
+inventaire: amulette bouftou,amulette bouftou,ceinture bouftou,amulette bouftou
+position: 8437,4193
+stats: 6,3,1000,139,32,12,23,23,12,45,3,6,23,12,2,21
+kama: 100000
 gm: 1
