@@ -26,7 +26,7 @@ const int prices[] = {60, 60, 60, 60, 60, 30, 30 , 30, 30, 30, 30, 30, 30, 30
 void rand_item2(general_t *g, char *str, int i,  int a)
 {
     while (a == i)
-        a = rand() % 34;
+        a = rand() % 33;
     str = mstrcpy(str, "asset/");
     str = mstrcat(str, items[a]);
     str = mstrcat(str, ".png");
@@ -64,7 +64,7 @@ void rand_item4(general_t *g, char *str, int c)
 void trader_randitem(general_t *g)
 {
     char *str = NULL;
-    int i = rand() % 34, a = i, b = i, c = i;
+    int i = rand() % 33, a = i, b = i, c = i;
     str = mstrcpy(str, "asset/");
     str = mstrcat(str, items[i]);
     str = mstrcat(str, ".png");
@@ -75,9 +75,9 @@ void trader_randitem(general_t *g)
     g->trader->price1 = prices[i];
     rand_item2(g, str, a, i);
     while (b == i || b == a)
-        b = rand() % 34;
+        b = rand() % 33;
     rand_item3(g, str, b);
     while (c == i || c == a || c == b)
-        c = rand() % 34;
+        c = rand() % 33;
     rand_item4(g, str, c);
 }

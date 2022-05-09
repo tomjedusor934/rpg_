@@ -79,7 +79,7 @@ void add_node(general_t *g, mobs_t *mob, int mob_nb)
 void add_in_group(general_t *g)
 {
     mobs_t *back = g->f->mobs;
-    int size = size_list(g);
+    int size = size_list(g) - 1;
     int rand_nb_mob = 0;
     int nb_mob = 0;
     int rand_mob = 0;

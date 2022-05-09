@@ -47,7 +47,7 @@ void check_cmd(general_t *g)
 void write_cmd(general_t *g, char letter, char *str)
 {
     int x = 0;
-    if (((letter >= 'a' && letter <= 'z') || letter == 57 || 
+    if (((letter >= 'a' && letter <= 'z') || letter == 57 ||
     (letter >= '0' && letter <= '9') || letter == 58) &&
     my_strlen(str) != 50) {
         for (; str[x] != '\0'; x++);
