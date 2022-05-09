@@ -22,8 +22,10 @@ void envent_menu(general_t *g)
         if (g->game->event.type == sfEvtKeyPressed &&
         g->game->event.key.code == sfKeySpace)
             choose_file(g, g->game->event.key.code);
-        if (g->game->event.type == sfEvtKeyPressed &&
-        g->game->event.key.code == sfKeyReturn) {
+        if ((g->game->event.type == sfEvtKeyPressed &&
+        g->game->event.key.code == sfKeyReturn) ||
+        is_on_button(g->menu->connect_but, g) ||
+        is_on_button(g->menu->create_but, g)) {
             registration(g);
         }
     }
