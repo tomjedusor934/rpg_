@@ -27,7 +27,7 @@ void display_fight2(general_t *g)
 void display_spells(general_t *g)
 {
     int i = 578;
-    
+
     while (g->player->stat_player->sort->next != NULL) {
         sfSprite_setPosition(g->player->stat_player->sort->s->logo->sprite,
         (sfVector2f) {i, 930});

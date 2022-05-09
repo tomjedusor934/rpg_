@@ -18,12 +18,15 @@ void end_fight(general_t *g)
     g->player->stat_player->info->pa = g->player->stat_player->info->max_pa;
     while (g->f->mobs_fight) {
         kamas += g->f->mobs_fight->level;
+        g->f->map[g->f->mobs_fight->posy][g->f->mobs_fight->posx] = ' ';
         xp += (g->f->mobs_fight->level * g->f->mobs_fight->level);
         g->f->mobs_fight = g->f->mobs_fight->next;
     }
     g->f->mobs_fight = backup;
     g->f->reward_kama = kamas;
     g->f->reward_xp = xp;
+    g->player->stat_player->kama += kamas;
+    g->player->stat_player->xp += xp;
     g->f->victory_screen = 1;
     g->f->is_fg = 0;
     g->plan = GAME;
@@ -31,7 +34,7 @@ void end_fight(general_t *g)
 
 void is_dead2(general_t *g, int is_one_alive, mobs_fight_t *backup)
 {
-    if (is_one_alive == 0) {
+    if (is_one_alive == 0 || g->player->stat_player->info->vie <= 0) {
         end_fight(g);
         g->f->mobs_fight = NULL;
     }
@@ -40,7 +43,6 @@ void is_dead(general_t *g)
 {
     mobs_fight_t *backup = g->f->mobs_fight;
     int is_one_alive = 0;
-    
     while (g->f->mobs_fight != NULL) {
         if (g->f->mobs_fight->health < 1) {
             g->f->mobs_fight->is_dead = 1;

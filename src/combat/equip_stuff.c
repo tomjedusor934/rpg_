@@ -27,6 +27,7 @@ void set_stat4(general_t *g, char *item, int a, int i)
     g->player->stat_player->info->max_vie = g->player->stat_player->
     info->max_vie + my_atoi(g->f->items[i], a);
     a += intlen(my_atoi(g->f->items[i], a)) + 1;
+    g->player->stat_player->info->vie = g->player->stat_player->info->max_vie;
 }
 
 void set_stat3(general_t *g, char *item)
@@ -63,11 +64,11 @@ void set_stat(general_t *g)
     g->player->stat_player->info->damage = 0;
     if (g->player->stat_player->level > 9 )
         g->player->stat_player->info->max_pa = 7;
-    else 
+    else
         g->player->stat_player->info->max_pa = 6;
     if (g->player->stat_player->level > 9 )
         g->player->stat_player->info->max_pm = 4;
-    else 
+    else
         g->player->stat_player->info->max_pm = 3;
     set_stat2(g);
 }

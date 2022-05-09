@@ -16,12 +16,19 @@ void game_loop(general_t *g)
 {
     all_init(g);
     int inventory_open = 1;
+
     init_menu_text(g);
+
     create_view(g);
+
     create_text(g);
+
+
     while (sfRenderWindow_isOpen(g->game->window)) {
+
         g->game->mouse = sfMouse_getPositionRenderWindow(g->game->window);
         g->game->pos_mouse = sfRenderWindow_mapPixelToCoords(g->game->window, g->game->mouse, g->game->cam);
+
         pole_event(g);
         if (g->plan == GAME) {
             sfRenderWindow_setView(g->game->window, g->game->cam);
@@ -30,12 +37,15 @@ void game_loop(general_t *g)
                 sfRenderWindow_setView(g->game->window, g->game->cam);
                 g->file_load = 2;
             }
+
+            //print_4_text(g);
             sfRenderWindow_clear(g->game->window, sfBlack);
             while (g->map[g->g_mapi]) {
                 sfRenderWindow_drawSprite(g->game->window, g->map[g->g_mapi]->sprite, NULL);
                 g->g_mapi++;
             }
             g->g_mapi = 0;
+
             sfRenderWindow_drawSprite(g->game->window, g->pnj->pnj1->sprite, NULL);
             sfRenderWindow_drawSprite(g->game->window, g->pnj->pnj2->sprite, NULL);
             if (g->inv->caract_open) {
@@ -66,6 +76,7 @@ void game_loop(general_t *g)
 
             sfSprite_setPosition(g->player->player_ap->player->sprite, g->player->player_ap->player->pos);
             recenter_cam(g);
+
             if (g->inv->is_open == 1) {
                 if (g->inv->dad_eq >= 0)
                     dad_eq(g);
@@ -99,6 +110,7 @@ void game_loop(general_t *g)
                 sfRenderWindow_drawSprite(g->game->window, g->game->god_mode->terminal->sprite, NULL);
                 sfRenderWindow_drawText(g->game->window, g->game->god_mode->text_cmd->text, NULL);
             }
+            //mini map display
             if (g->game->map_visible == 1) {
                 sfRenderWindow_setView(g->game->window, g->game->mini_map);
                 while (g->map[g->g_mapi]) {
@@ -116,6 +128,8 @@ void game_loop(general_t *g)
         }
         game_loop_menu(g);
         game_loop_fight(g);
+        (g->surscene == SETTINGS ? option_menu(g) :
+        g->surscene == MAIN_MENU ? main_menu(g) : 0);
         sfRenderWindow_display(g->game->window);
     }
 }

@@ -79,7 +79,7 @@ void pole_event(general_t *g)
     while (sfRenderWindow_pollEvent(g->game->window, &g->game->event)) {
         if (g->game->event.type == sfEvtKeyPressed &&
         g->game->event.key.code == sfKeyReturn)
-            g->surscene = MAIN_MENU;
+            g->surscene == MAIN_MENU;
         envent_menu(g);
         event_fight(g);
         event_game(g);

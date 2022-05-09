@@ -10,10 +10,9 @@
 void levelup(general_t *g)
 {
     int xp_to_lvup = 30;
-    for (int i = g->player->stat_player->level; i > 1; i--)
+    for (int i = g->player->stat_player->level; i > 0; i--)
         xp_to_lvup *= 1.5;
     if (xp_to_lvup <= g->player->stat_player->xp) {
-        g->player->stat_player->xp = 0;
         g->player->stat_player->level++;
         g->player->stat_player->point_caract += 5;
     }

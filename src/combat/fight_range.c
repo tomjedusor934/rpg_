@@ -91,7 +91,7 @@ int range_attack3(general_t *g, int i)
 int range_attack(general_t *g)
 {
     int is_inrange = 0;
-    
+
     for (int i = 0; i != g->f->mobs_fight->range; i++) {
         (g->f->mobs_fight->posy - (g->f->mobs_fight->range - i) >= 0
         && g->f->mobs_fight

@@ -13,6 +13,12 @@ void main_menu(general_t *g)
     g->menu->mom_cross->pos.y = g->menu->main_menu->pos.y + 8 * 2;
     sfSprite_setPosition(g->menu->mom_cross->sprite,
     g->menu->mom_cross->pos);
+    if (g->plan == GAME || g->plan == FIGHT) {
+        g->menu->main_menu->pos.x = g->player->cam_posx;
+        g->menu->main_menu->pos.y = g->player->cam_posy;
+        sfSprite_setPosition(g->menu->main_menu->sprite,
+        g->menu->main_menu->pos);
+    }
     sfRenderWindow_drawSprite(g->game->window,
     g->menu->main_menu->sprite, NULL);
     sfRenderWindow_drawSprite(g->game->window,
@@ -29,6 +35,12 @@ void option_menu(general_t *g)
     g->menu->mom_cross->pos.y = g->menu->option_menu->pos.y + 23 * 1.5;
     sfSprite_setPosition(g->menu->mom_cross->sprite,
     g->menu->mom_cross->pos);
+    if (g->plan == GAME || g->plan == FIGHT) {
+        g->menu->option_menu->pos.x = g->player->cam_posx;
+        g->menu->option_menu->pos.y = g->player->cam_posy;
+        sfSprite_setPosition(g->menu->option_menu->sprite,
+        g->menu->option_menu->pos);
+    }
     sfRenderWindow_drawSprite(g->game->window,
     g->menu->option_menu->sprite, NULL);
     sfRenderWindow_drawSprite(g->game->window,
@@ -52,8 +64,6 @@ void download_file(sfFtp *ftp, general_t *g)
 {
     int add = 1920 / 63;
     int defaut = 1920 % 63;
-    // char *asset = NULL;
-    // char *check_file
     g->menu->loading_bar->rect.width += defaut;
     for (int i = 0; i < 63; i++) {
         sfRenderWindow_clear(g->game->window, sfBlack);
@@ -61,7 +71,6 @@ void download_file(sfFtp *ftp, general_t *g)
         char check_file[256];
         sprintf (asset, "%d.png", i);
         sprintf (check_file, "asset/%d.png", i);
-
         FILE *check;
         if ((check = fopen(check_file, "r")) == NULL)
             sfFtp_download(ftp, asset, "./asset/", sfFtpAscii);

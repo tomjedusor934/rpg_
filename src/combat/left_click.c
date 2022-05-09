@@ -40,7 +40,7 @@ void left_click3(general_t *g)
             g->player->stat_player->info->pa - g->f->selected->pa;
         }
         g->f->mobs_fight = g->f->mobs_fight->next;
-    }   
+    }
 }
 
 void left_click4(general_t *g)

@@ -35,19 +35,19 @@ void upgrade_stat(general_t *g)
     (is_on_button(g->inv->bouton[0], g) == 1 &&
     g->player->stat_player->point_caract > 0 ?
     g->player->stat_player->point_caract--,
-    g->player->stat_player->info->max_vie++ : 0);
+    g->player->base_stats->vie++ : 0);
     (is_on_button(g->inv->bouton[1], g) == 1 &&
     g->player->stat_player->point_caract > 0 ?
     g->player->stat_player->point_caract--,
-    g->player->stat_player->info->agilite++ : 0);
+    g->player->base_stats->agilite++ : 0);
     (is_on_button(g->inv->bouton[2], g) == 1 &&
     g->player->stat_player->point_caract > 0 ?
     g->player->stat_player->point_caract--,
-    g->player->stat_player->info->chance++ : 0);
+    g->player->base_stats->chance++ : 0);
     (is_on_button(g->inv->bouton[3], g) == 1 &&
     g->player->stat_player->point_caract > 0 ?
     g->player->stat_player->point_caract--,
-    g->player->stat_player->info->force++ : 0);
+    g->player->base_stats->force++ : 0);
 }
 
 void update_stat(general_t *g)
@@ -59,7 +59,7 @@ void update_stat(general_t *g)
             (is_on_button(g->inv->bouton[4], g) == 1 &&
             g->player->stat_player->point_caract > 0 ?
             g->player->stat_player->point_caract--,
-            g->player->stat_player->info->inteligence++ : 0);
+            g->player->base_stats->inteligence++ : 0);
             (is_on_button(g->inv->bouton[5], g) == 1 &&
             g->player->stat_player->point_caract > 0 ?
             g->player->stat_player->point_caract--,

@@ -78,4 +78,5 @@ void mobs_turn(general_t *g)
         g->f->mobs_fight = g->f->mobs_fight->next;
     }
     g->f->mobs_fight = tmp;
+    is_dead(g);
 }
