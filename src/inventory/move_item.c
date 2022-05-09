@@ -27,7 +27,7 @@ void move_item2(general_t *g, slot_t *tmp, slot_t *elemen)
     g->inv->slot->is_empty = 0;
 }
 
-void move_item3(general_t *g, slot_t *tmp, slot_t *elemen)
+void move_item3(general_t *g, slot_t *elemen)
 {
     int i = 0;
     g->inv->slot = elemen;
@@ -42,7 +42,7 @@ void move_item3(general_t *g, slot_t *tmp, slot_t *elemen)
     sfSprite_setPosition(g->inv->equip->item->sprite, g->inv->equip->eq->pos);
 }
 
-void move_item4(general_t *g, slot_t *tmp, slot_t *elemen)
+void move_item4(general_t *g, slot_t *elemen)
 {
     int i = 0;
     g->inv->slot = elemen;
@@ -68,9 +68,9 @@ void move_item(general_t *g)
     if (bouton_inv_item_move(g) == 1) {
         move_item2(g, tmp, elemen);
     } else if (bouton_inv_toeq(g, tmp) == 1) {
-        move_item3(g, tmp, elemen);
+        move_item3(g, elemen);
     } else {
-        move_item4(g, tmp, elemen);
+        move_item4(g, elemen);
     }
     g->inv->equip = tmp2;
     g->inv->slot = elemen;

@@ -7,11 +7,6 @@
 
 #include "../../include/my_rpg.h"
 
-void de_all_menus(general_t *g)
-{
-
-}
-
 void game_loop(general_t *g)
 {
     all_init(g);

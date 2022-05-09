@@ -7,7 +7,7 @@
 
 #include "../../include/my_rpg.h"
 
-void set_stat4(general_t *g, char *item, int a, int i)
+void set_stat4(general_t *g, int a, int i)
 {
     g->player->stat_player->info->inteligence = g->player->
     stat_player->info->inteligence + my_atoi(g->f->items[i], a);
@@ -36,7 +36,7 @@ void set_stat3(general_t *g, char *item)
 
     for (int i = 0; g->f->items[i]; i++) {
         if (compare_wiw(item, g->f->items[i])) {
-            set_stat4(g, item, a, i);
+            set_stat4(g, a, i);
         }
     }
 }

@@ -14,7 +14,7 @@ void start_fight(general_t *g, char **mob_list)
     (sfVector2f) {0, 0}, (sfIntRect) {0, 0, 60, 60}, (sfVector2f) {1, 1});
     int i = 0;
     g->player->stat_player->sort = malloc(sizeof(spells_list_t));
-    for (i; mob_list[i]; i++) {
+    for (; mob_list[i]; i++) {
         g->f->str[i] = mob_list[i];
     }
     g->f->str[i] = "0";

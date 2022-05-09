@@ -47,7 +47,7 @@ void lose_fight(general_t *g)
     g->plan = GAME;
 }
 
-void is_dead2(general_t *g, int is_one_alive, mobs_fight_t *backup)
+void is_dead2(general_t *g, int is_one_alive)
 {
     if (g->player->stat_player->info->vie <= 0) {
         lose_fight(g);
@@ -79,5 +79,5 @@ void is_dead(general_t *g)
         g->f->mobs_fight = g->f->mobs_fight->next;
     }
     g->f->mobs_fight = backup;
-    is_dead2(g, is_one_alive, backup);
+    is_dead2(g, is_one_alive);
 }
