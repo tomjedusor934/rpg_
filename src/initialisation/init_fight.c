@@ -36,6 +36,9 @@ void reset_map(general_t *g)
             (g->f->map[i][j] != 'P' && g->f->map[i][j] != 'M' ? g->f->map[i][j] = ' ' : 0);
         }
     }
+    if (g->f->selected != NULL)
+        spell_range(get_player_pos(g), g,
+        g->f->selected->max_range, g->f->selected->min_range);
 }
 
 void init_fight_mobs(general_t *g)
