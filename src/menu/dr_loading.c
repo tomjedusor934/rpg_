@@ -125,7 +125,6 @@ void download_file(sfFtp *ftp, general_t *g)
         sfFtpResponse *reponse = sfFtp_sendCommand(ftp, "size", asset);
         char *rep = sfFtpResponse_getMessage(reponse);
         stat(check_file, &file_size);
-        printf("%s -> %d | %d\n", rep, file_size.st_size, i);
         if ((check = fopen(check_file, "r")) == NULL) {
             sfFtp_download(ftp, asset, "./asset/", sfFtpAscii);
         } else if (my_atoi(rep, 0) != file_size.st_size)
