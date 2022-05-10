@@ -53,8 +53,8 @@ void log_three(general_t *g)
     NULL);
     sfRenderWindow_drawSprite(g->game->window, g->menu->logo_male->sprite,
     NULL);
-    sfRenderWindow_drawSprite(g->game->window,
-    g->menu->logo_unidentified->sprite, NULL);
+    // sfRenderWindow_drawSprite(g->game->window,
+    // g->menu->logo_unidentified->sprite, NULL);
     if (g->error == 1 || g->error == 2)
         sfRenderWindow_drawSprite(g->game->window,
         g->menu->username_error_message->sprite, NULL);

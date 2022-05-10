@@ -58,6 +58,7 @@ void event_game(general_t *g)
         manage_quest(g);
         if (g->game->event.type == sfEvtMouseButtonReleased && g->inv->is_open == 0 && g->inv->caract_open == 0 && g->surscene == NOTHING) {
             click_on_mob(g);
+            g->f->victory_screen = 0;
             g->player->dir_anim = 0;
             g->player->tmp_pos_x = g->pos_playe_x;
             g->player->tmp_pos_y = g->pos_player_y;
